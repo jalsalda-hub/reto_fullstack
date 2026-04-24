@@ -5,6 +5,7 @@ import Login from '../pages/Login';
 import Cart from '../pages/Cart';
 import Checkout from '../pages/Checkout';
 import Category from '../pages/Category';
+import Admin from '../pages/Admin';
 import { MainLayout } from '../components/templates/MainLayout';
 
 const AppRouter = () => {
@@ -18,6 +19,7 @@ const AppRouter = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/admin" element={<Admin />} />
         </Routes>
       </MainLayout>
     </BrowserRouter>
