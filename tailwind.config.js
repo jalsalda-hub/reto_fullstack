@@ -5,7 +5,17 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ['Poppins', 'sans-serif'],
+      },
+      colors: {
+        'hexa-dark': '#2a2a2a',
+        'hexa-light': '#f3f3f3',
+        'hexa-gray': '#aaaaaa',
+        'hexa-accent': '#000000',
+      }
+    },
   },
   plugins: [],
 }
