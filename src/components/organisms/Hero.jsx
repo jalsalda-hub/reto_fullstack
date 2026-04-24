@@ -1,4 +1,5 @@
 import Button from '../atoms/Button';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   const categories = [
@@ -18,17 +19,17 @@ const Hero = () => {
     },
     {
       id: 3,
-      title: 'Niños',
-      subtitle: 'La mejor ropa para niños',
-      image: 'https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      link: '/category/kids'
+      title: 'Electrónicos',
+      subtitle: 'La última tecnología',
+      image: 'https://images.unsplash.com/photo-1498049794561-7780e7231661?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      link: '/category/electronics'
     },
     {
       id: 4,
       title: 'Accesorios',
-      subtitle: 'Los mejores accesorios',
+      subtitle: 'Las mejores joyas',
       image: 'https://images.unsplash.com/photo-1523206489230-c012c64b2b48?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      link: '/category/accessories'
+      link: '/category/jewelery'
     }
   ];
 
@@ -65,9 +66,9 @@ const Hero = () => {
         {/* Lado derecho - 4 Categorías */}
         <div className="lg:w-1/2 grid grid-cols-1 md:grid-cols-2">
           {categories.map((cat) => (
-            <a 
+            <Link 
               key={cat.id}
-              href={cat.link}
+              to={cat.link}
               className="relative overflow-hidden group block h-[300px] lg:h-full min-h-[250px]"
             >
               <img 
@@ -92,7 +93,7 @@ const Hero = () => {
                   </span>
                 </div>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
 
