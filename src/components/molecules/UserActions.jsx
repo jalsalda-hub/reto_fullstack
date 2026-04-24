@@ -1,17 +1,24 @@
 import { ShoppingCart, UserRound } from 'lucide-react';
 import { useAuthStore } from '../../store/useAuthStore';
+import { useCartStore } from '../../store/useCartStore';
 import { useNavigate } from 'react-router-dom';
 
 export const UserActions = () => {
   const { isAuthenticated, user, logout } = useAuthStore();
+  const cart = useCartStore((state) => state.cart);
   const navigate = useNavigate();
+
+  const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
 
   return (
     <div className="flex items-center space-x-6">
       <button className="relative text-hexa-dark hover:text-black transition">
         <ShoppingCart className="w-6 h-6" />
-        {/* Placeholder count */}
-        <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
+        {totalItems > 0 && (
+          <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
+            {totalItems}
+          </span>
+        )}
       </button>
 
       <div className="relative group flex items-center space-x-2">

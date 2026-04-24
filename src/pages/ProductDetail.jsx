@@ -1,23 +1,37 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useProductStore } from '../store/useProductStore';
+import { useCartStore } from '../store/useCartStore';
 import Button from '../components/atoms/Button';
-import { ArrowLeft, ShoppingCart } from 'lucide-react';
+import { ArrowLeft, ShoppingCart, Plus, Minus } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 const ProductDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const { products } = useProductStore();
+  const addToCart = useCartStore((state) => state.addToCart);
+  
   const [product, setProduct] = useState(null);
+  const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
     // Buscamos el producto en el store por su ID
     const foundProduct = products.find(p => p.id === parseInt(id));
-    setProduct(foundProduct);
+    if (foundProduct) {
+      setProduct(foundProduct);
+      setQuantity(1); // Reset quantity al cambiar el producto
+    }
     
     // Scrollear hacia arriba al montar
     window.scrollTo(0, 0);
   }, [id, products]);
+
+  const handleAddToCart = () => {
+    addToCart(product, quantity);
+  };
+
+  const handleIncrease = () => setQuantity(q => q + 1);
+  const handleDecrease = () => setQuantity(q => q > 1 ? q - 1 : 1);
 
   if (!product) {
     return (
@@ -63,10 +77,36 @@ const ProductDetail = () => {
             </p>
           </div>
 
+          <div className="flex items-center gap-4 mb-6">
+            <span className="text-gray-600 font-medium">Cantidad:</span>
+            <div className="flex items-center border border-gray-300 rounded bg-white overflow-hidden">
+              <button 
+                onClick={handleDecrease}
+                className="px-4 py-2 text-gray-600 hover:bg-gray-100 transition-colors"
+                disabled={quantity <= 1}
+              >
+                <Minus size={18} />
+              </button>
+              <div className="w-12 text-center font-semibold border-x border-gray-300 py-2">
+                {quantity}
+              </div>
+              <button 
+                onClick={handleIncrease}
+                className="px-4 py-2 text-gray-600 hover:bg-gray-100 transition-colors"
+              >
+                <Plus size={18} />
+              </button>
+            </div>
+          </div>
+
           <div className="flex items-center gap-4">
-            <Button variant="primary" className="flex-1 py-4 text-lg flex items-center justify-center gap-2">
+            <Button 
+              variant="primary" 
+              className="flex-1 py-4 text-lg flex items-center justify-center gap-2"
+              onClick={handleAddToCart}
+            >
               <ShoppingCart className="w-5 h-5" />
-              Añadir al Carrito
+              Añadir {quantity > 1 ? `${quantity} items` : 'al Carrito'}
             </Button>
           </div>
         </div>

@@ -1,9 +1,16 @@
 import { ShoppingCart } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { useCartStore } from '../../store/useCartStore';
 import Button from '../atoms/Button';
 
 const ProductCard = ({ product }) => {
   const navigate = useNavigate();
+  const addToCart = useCartStore((state) => state.addToCart);
+
+  const handleAddToCart = (e) => {
+    e.stopPropagation(); // Evita navegar si el contenedor tuviera un onClick
+    addToCart(product, 1);
+  };
 
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 group">
@@ -30,7 +37,11 @@ const ProductCard = ({ product }) => {
           >
             Ver Detalle
           </Button>
-          <Button variant="primary" className="p-2 flex items-center justify-center">
+          <Button 
+            variant="primary" 
+            className="p-2 flex items-center justify-center"
+            onClick={handleAddToCart}
+          >
             <ShoppingCart size={20} />
           </Button>
         </div>
