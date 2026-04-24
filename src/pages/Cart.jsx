@@ -18,6 +18,11 @@ const Cart = () => {
 
   const totalItems = getTotalItems();
   const totalPrice = getTotalPrice();
+  
+  // Lógica de Envío Gratis
+  const freeShippingThreshold = 185000;
+  const progressPercentage = Math.min((totalPrice / freeShippingThreshold) * 100, 100);
+  const remainingForFreeShipping = Math.max(freeShippingThreshold - totalPrice, 0);
 
   if (cart.length === 0) {
     return (
@@ -132,6 +137,27 @@ const Cart = () => {
           <div className="bg-gray-50 p-8 rounded-xl border border-gray-100 sticky top-24">
             <h2 className="text-xl font-bold text-gray-900 mb-6">Resumen del Pedido</h2>
             
+            {/* Barra de progreso de envío gratis */}
+            <div className="mb-6 bg-white p-4 rounded-lg border border-gray-200 shadow-sm">
+              <div className="flex justify-between items-end mb-2">
+                <span className="text-sm font-bold text-gray-800">Envío Gratis</span>
+                <span className="text-xs font-medium text-gray-500">
+                  {progressPercentage >= 100 
+                    ? <span className="text-green-600 font-bold">¡Desbloqueado!</span>
+                    : `Faltan ${formatPrice(remainingForFreeShipping)}`}
+                </span>
+              </div>
+              <div className="w-full bg-gray-200 rounded-full h-2.5 overflow-hidden">
+                <div 
+                  className={`h-2.5 rounded-full transition-all duration-700 ease-out ${progressPercentage >= 100 ? 'bg-green-500' : 'bg-gray-800'}`}
+                  style={{ width: `${progressPercentage}%` }}
+                ></div>
+              </div>
+              <p className="text-[10px] text-gray-400 mt-2 text-center">
+                Por compras superiores a {formatPrice(freeShippingThreshold)}
+              </p>
+            </div>
+            
             <div className="space-y-4 mb-6 text-gray-600">
               <div className="flex justify-between">
                 <span>Subtotal ({totalItems} {totalItems === 1 ? 'producto' : 'productos'})</span>
@@ -139,7 +165,9 @@ const Cart = () => {
               </div>
               <div className="flex justify-between pb-4 border-b border-gray-200">
                 <span>Envío estimado</span>
-                <span className="font-medium text-green-600">Gratis</span>
+                <span className={`font-medium ${progressPercentage >= 100 ? 'text-green-600' : 'text-gray-500'}`}>
+                  {progressPercentage >= 100 ? 'Gratis' : 'Calculado en Checkout'}
+                </span>
               </div>
               
               <div className="flex justify-between text-xl font-bold text-gray-900 pt-2">
