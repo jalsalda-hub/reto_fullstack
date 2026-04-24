@@ -12,7 +12,11 @@ export const UserActions = () => {
 
   return (
     <div className="flex items-center space-x-6">
-      <button className="relative text-hexa-dark hover:text-black transition">
+      <button 
+        onClick={() => navigate('/cart')} 
+        className="relative text-hexa-dark hover:text-black transition cursor-pointer"
+        aria-label="Ver carrito"
+      >
         <ShoppingCart className="w-6 h-6" />
         {totalItems > 0 && (
           <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
