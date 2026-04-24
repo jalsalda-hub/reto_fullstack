@@ -1,5 +1,6 @@
 import Button from '../atoms/Button';
 import { Link } from 'react-router-dom';
+import heroImage from '../../assets/hero.png';
 
 const Hero = () => {
   const categories = [
@@ -7,28 +8,28 @@ const Hero = () => {
       id: 1,
       title: 'Mujeres',
       subtitle: 'La mejor ropa para mujeres',
-      image: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=80',
       link: '/category/women'
     },
     {
       id: 2,
       title: 'Hombres',
       subtitle: 'La mejor ropa para hombres',
-      image: 'https://images.unsplash.com/photo-1490578474895-699cd4e2cf59?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1490578474895-699cd4e2cf59?auto=format&fit=crop&w=800&q=80',
       link: '/category/men'
     },
     {
       id: 3,
       title: 'Electrónicos',
       subtitle: 'La última tecnología',
-      image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80',
       link: '/category/electronics'
     },
     {
       id: 4,
       title: 'Joyería',
       subtitle: 'Las mejores joyas',
-      image: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=800&q=80',
       link: '/category/jewelery'
     }
   ];
@@ -41,13 +42,13 @@ const Hero = () => {
         <div className="lg:w-1/2 relative flex items-center justify-center overflow-hidden group p-4 lg:p-8">
           <div className="absolute inset-0 z-0">
             <img 
-              src="/src/assets/hero.png" 
+              src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?auto=format&fit=crop&w=1200&q=80" 
               alt="Moda Hexashop Principal" 
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80' }}
+              referrerPolicy="no-referrer"
             />
-            {/* Overlay oscuro para legibilidad */}
-            <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+            {/* Overlay oscuro para legibilidad (Sintaxis Tailwind v4) */}
+            <div className="absolute inset-0 bg-black/40"></div>
           </div>
           
           <div className="relative z-10 text-white text-center md:text-left px-8 py-12 md:px-16 md:py-20 flex flex-col items-center md:items-start w-full">
@@ -57,9 +58,13 @@ const Hero = () => {
             <p className="text-gray-200 text-lg mb-8 max-w-lg font-light italic">
               Increíble, limpia y creativa tienda online. Descubre nuestra última colección.
             </p>
-            <Button variant="primary" className="px-10 py-4 text-lg font-semibold uppercase tracking-wider bg-white text-black hover:bg-hexa-dark hover:text-white transition-colors duration-300">
+            {/* Botón personalizado sin usar el componente Button para evitar conflicto de colores (fondo blanco, texto negro) */}
+            <Link 
+              to="/category/women"
+              className="inline-block px-10 py-4 text-lg font-semibold uppercase tracking-wider bg-white text-black hover:bg-gray-200 transition-colors duration-300 shadow-lg"
+            >
               Comprar Ahora
-            </Button>
+            </Link>
           </div>
         </div>
 
@@ -74,10 +79,11 @@ const Hero = () => {
               <img 
                 src={cat.image} 
                 alt={cat.title} 
+                referrerPolicy="no-referrer"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
-              {/* Overlay oscuro */}
-              <div className="absolute inset-0 bg-black bg-opacity-30 transition-opacity duration-300 group-hover:bg-opacity-50"></div>
+              {/* Overlay oscuro (Sintaxis Tailwind v4) */}
+              <div className="absolute inset-0 bg-black/30 transition-colors duration-300 group-hover:bg-black/50"></div>
               
               {/* Contenido centrado */}
               <div className="absolute inset-0 flex flex-col items-center justify-center text-white z-10 p-6 text-center">
