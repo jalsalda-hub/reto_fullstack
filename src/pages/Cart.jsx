@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useCartStore } from '../store/useCartStore';
+import { formatPrice } from '../utils/formatPrice';
 import Button from '../components/atoms/Button';
 import { Trash2, Plus, Minus, ArrowLeft, ShoppingBag } from 'lucide-react';
 
@@ -67,7 +68,7 @@ const Cart = () => {
                       </h3>
                     </div>
                     <p className="font-bold text-lg text-gray-900 border-l border-gray-100 pl-4 ml-4 hidden sm:block">
-                      ${(item.price * item.quantity).toFixed(2)}
+                      {formatPrice(item.price * item.quantity)}
                     </p>
                   </div>
                   
@@ -93,7 +94,7 @@ const Cart = () => {
 
                     {/* Precio responsivo (mobile) */}
                     <p className="font-bold text-lg text-gray-900 sm:hidden">
-                      ${(item.price * item.quantity).toFixed(2)}
+                      {formatPrice(item.price * item.quantity)}
                     </p>
                   </div>
                 </div>
@@ -134,7 +135,7 @@ const Cart = () => {
             <div className="space-y-4 mb-6 text-gray-600">
               <div className="flex justify-between">
                 <span>Subtotal ({totalItems} {totalItems === 1 ? 'producto' : 'productos'})</span>
-                <span className="font-medium text-gray-900">${totalPrice.toFixed(2)}</span>
+                <span className="font-medium text-gray-900">{formatPrice(totalPrice)}</span>
               </div>
               <div className="flex justify-between pb-4 border-b border-gray-200">
                 <span>Envío estimado</span>
@@ -143,7 +144,7 @@ const Cart = () => {
               
               <div className="flex justify-between text-xl font-bold text-gray-900 pt-2">
                 <span>Total</span>
-                <span>${totalPrice.toFixed(2)}</span>
+                <span>{formatPrice(totalPrice)}</span>
               </div>
             </div>
 

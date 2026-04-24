@@ -2,7 +2,7 @@
   {
     "id": 1,
     "title": "Classic Spring Shirt",
-    "price": 120.00,
+    "price": 480000,
     "category": "Men",
     "description": "Una camisa clásica perfecta para la primavera.",
     "image": "https://images.unsplash.com/photo-1596755094514-f87e32f85e98?auto=format&fit=crop&w=300&q=80"
@@ -10,7 +10,7 @@
   {
     "id": 2,
     "title": "Air Force 1 X",
-    "price": 90.00,
+    "price": 360000,
     "category": "Shoes",
     "description": "Zapatillas urbanas de gran comodidad.",
     "image": "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=300&q=80"
@@ -18,7 +18,7 @@
   {
     "id": 3,
     "title": "Love Hat",
-    "price": 25.00,
+    "price": 100000,
     "category": "Accessories",
     "description": "Gorra de diseño exclusivo con bordado.",
     "image": "https://images.unsplash.com/photo-1521369909029-2afed882ba54?auto=format&fit=crop&w=300&q=80"
@@ -26,7 +26,7 @@
   {
     "id": 4,
     "title": "Winter Jacket",
-    "price": 150.00,
+    "price": 600000,
     "category": "Women",
     "description": "Chaqueta de invierno cálida y elegante.",
     "image": "https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=300&q=80"
@@ -34,7 +34,7 @@
   {
     "id": 5,
     "title": "Sport Pants",
-    "price": 45.00,
+    "price": 180000,
     "category": "Men",
     "description": "Pantalones deportivos ligeros.",
     "image": "https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=300&q=80"
@@ -42,7 +42,7 @@
   {
     "id": 6,
     "title": "Leather Bag",
-    "price": 85.00,
+    "price": 340000,
     "category": "Accessories",
     "description": "Bolso de cuero genuino.",
     "image": "https://images.unsplash.com/photo-1584916201218-f4242ceb4809?auto=format&fit=crop&w=300&q=80"
@@ -50,7 +50,7 @@
   {
     "id": 7,
     "title": "Summer Dress",
-    "price": 65.00,
+    "price": 260000,
     "category": "Women",
     "description": "Vestido floral para el verano.",
     "image": "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&w=300&q=80"
@@ -58,7 +58,7 @@
   {
     "id": 8,
     "title": "Casual Sneakers",
-    "price": 70.00,
+    "price": 280000,
     "category": "Shoes",
     "description": "Zapatillas cómodas para el uso diario.",
     "image": "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=300&q=80"
@@ -66,7 +66,7 @@
   {
     "id": 9,
     "title": "Polarized Sunglasses",
-    "price": 35.00,
+    "price": 140000,
     "category": "Accessories",
     "description": "Gafas de sol con protección UV.",
     "image": "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=300&q=80"
@@ -74,7 +74,7 @@
   {
     "id": 10,
     "title": "Formal Suit",
-    "price": 250.00,
+    "price": 1000000,
     "category": "Men",
     "description": "Traje formal de dos piezas.",
     "image": "https://images.unsplash.com/photo-1594938298596-70f56fb56720?auto=format&fit=crop&w=300&q=80"
@@ -82,7 +82,7 @@
   {
     "id": 11,
     "title": "Denim Jacket",
-    "price": 110.00,
+    "price": 440000,
     "category": "Women",
     "description": "Chaqueta de mezclilla atemporal.",
     "image": "https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=300&q=80"
@@ -90,7 +90,7 @@
   {
     "id": 12,
     "title": "Running Shoes",
-    "price": 130.00,
+    "price": 520000,
     "category": "Shoes",
     "description": "Calzado especializado para running.",
     "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=300&q=80"

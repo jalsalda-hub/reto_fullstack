@@ -1,10 +1,71 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900');
 
 @import "tailwindcss";
 @config "../tailwind.config.js";
 
 @layer base {
   body {
-    @apply font-sans antialiased text-hexa-dark bg-white;
+    @apply font-sans antialiased bg-white text-[#2a2a2a];
+  }
+
+  p {
+    @apply text-[14px] leading-[25px] text-[#2a2a2a];
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply mt-0 mb-0;
+  }
+
+  a {
+    @apply no-underline;
+  }
+
+  ::selection {
+    @apply bg-[#2a2a2a] text-white;
+  }
+}
+
+@layer components {
+  /* Hexashop Buttons */
+  .main-border-button {
+    @apply text-[13px] text-white border border-white py-[12px] px-[25px] inline-block font-medium transition-all duration-300 hover:bg-white hover:text-[#2a2a2a];
+  }
+
+  .main-border-button-dark {
+    @apply text-[13px] text-[#2a2a2a] border border-[#2a2a2a] py-[12px] px-[25px] inline-block font-medium transition-all duration-300 hover:bg-[#2a2a2a] hover:text-white;
+  }
+
+  .main-white-button {
+    @apply text-[13px] text-[#2a2a2a] bg-white py-[12px] px-[25px] inline-block rounded-[3px] font-semibold transition-all duration-300 hover:opacity-90;
+  }
+
+  .main-text-button {
+    @apply text-[13px] text-white font-semibold transition-all duration-300 hover:opacity-90;
+  }
+
+  /* Hexashop Section Headings */
+  .section-heading {
+    @apply mb-[60px];
+  }
+
+  .section-heading h2 {
+    @apply text-[34px] font-bold text-[#2a2a2a] leading-tight mb-2;
+  }
+
+  .section-heading span {
+    @apply text-[14px] text-[#a1a1a1] italic font-normal block;
+  }
+
+  /* Hexashop Grid Items Subtitles/Stars */
+  .item-down-content {
+    @apply pt-[30px] relative z-10 bg-white;
+  }
+
+  .item-down-content h4 {
+    @apply text-[22px] text-[#2a2a2a] font-bold mb-[8px];
+  }
+
+  .item-down-content span.price {
+    @apply text-[18px] text-[#a1a1a1] font-medium block;
   }
 }

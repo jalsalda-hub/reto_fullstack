@@ -2,6 +2,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useProductStore } from '../store/useProductStore';
 import { useCartStore } from '../store/useCartStore';
 import { translateProduct } from '../utils/translations';
+import { formatPrice } from '../utils/formatPrice';
 import Button from '../components/atoms/Button';
 import { ArrowLeft, ShoppingCart, Plus, Minus } from 'lucide-react';
 import { useEffect, useState } from 'react';
@@ -67,7 +68,7 @@ const ProductDetail = () => {
             {locProduct.category}
           </p>
           <h1 className="text-4xl font-bold text-gray-900 mb-4">{locProduct.title}</h1>
-          <p className="text-3xl font-light text-gray-900 mb-6">${locProduct.price.toFixed(2)}</p>
+          <p className="text-3xl font-light text-gray-900 mb-6">{formatPrice(locProduct.price)}</p>
           
           <div className="border-t border-b border-gray-200 py-6 mb-8">
             <p className="text-gray-600 leading-relaxed text-lg">

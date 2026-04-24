@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useCartStore } from '../../store/useCartStore';
 import { useProductStore } from '../../store/useProductStore';
 import { translateProduct } from '../../utils/translations';
+import { formatPrice } from '../../utils/formatPrice';
 import Button from '../atoms/Button';
 
 const ProductCard = ({ product }) => {
@@ -26,7 +27,7 @@ const ProductCard = ({ product }) => {
           className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
         />
         <div className="absolute top-4 right-4 bg-white/90 px-3 py-1 rounded-full text-sm font-semibold text-gray-800">
-          ${locProduct.price.toFixed(2)}
+          {formatPrice(locProduct.price)}
         </div>
       </div>
       <div className="p-5">
