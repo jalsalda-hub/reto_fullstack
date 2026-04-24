@@ -16,8 +16,13 @@ export const useProductStore = create(
       itemsPerPage: ITEMS_PER_PAGE,
       isLoading: false,
       error: null,
+      language: 'es',
 
       // Acciones
+
+      toggleLanguage: () => {
+        set((state) => ({ language: state.language === 'es' ? 'en' : 'es' }));
+      },
 
       // Fase 2: Cargamos datos reales desde FakeStoreAPI
       loadInitialData: async () => {

@@ -1,17 +1,28 @@
-import { ShoppingCart, UserRound } from 'lucide-react';
+import { ShoppingCart, UserRound, Globe } from 'lucide-react';
 import { useAuthStore } from '../../store/useAuthStore';
 import { useCartStore } from '../../store/useCartStore';
+import { useProductStore } from '../../store/useProductStore';
 import { useNavigate } from 'react-router-dom';
 
 export const UserActions = () => {
   const { isAuthenticated, user, logout } = useAuthStore();
   const cart = useCartStore((state) => state.cart);
+  const { language, toggleLanguage } = useProductStore();
   const navigate = useNavigate();
 
   const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
 
   return (
     <div className="flex items-center space-x-6">
+      <button 
+        onClick={toggleLanguage} 
+        className="flex items-center text-hexa-dark hover:text-black font-medium transition"
+        title="Cambiar idioma"
+      >
+        <Globe className="w-5 h-5 mr-1" />
+        {language.toUpperCase()}
+      </button>
+
       <button 
         onClick={() => navigate('/cart')} 
         className="relative text-hexa-dark hover:text-black transition cursor-pointer"
