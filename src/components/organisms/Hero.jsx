@@ -21,14 +21,14 @@ const Hero = () => {
       id: 3,
       title: 'Electrónicos',
       subtitle: 'La última tecnología',
-      image: 'https://images.unsplash.com/photo-1498049794561-7780e7231661?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
       link: '/category/electronics'
     },
     {
       id: 4,
-      title: 'Accesorios',
+      title: 'Joyería',
       subtitle: 'Las mejores joyas',
-      image: 'https://images.unsplash.com/photo-1523206489230-c012c64b2b48?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
       link: '/category/jewelery'
     }
   ];
