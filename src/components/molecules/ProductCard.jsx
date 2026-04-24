@@ -24,6 +24,7 @@ const ProductCard = ({ product }) => {
         <img 
           src={locProduct.image} 
           alt={locProduct.title} 
+          referrerPolicy="no-referrer"
           className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
         />
         <div className="absolute top-4 right-4 bg-white/90 px-3 py-1 rounded-full text-sm font-semibold text-gray-800">

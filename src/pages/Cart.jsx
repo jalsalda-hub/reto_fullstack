@@ -52,7 +52,7 @@ const Cart = () => {
                 
                 {/* Imagen */}
                 <div className="w-full sm:w-32 h-32 sm:h-full bg-gray-50 rounded-lg overflow-hidden mb-4 sm:mb-0 flex-shrink-0 cursor-pointer" onClick={() => navigate(`/product/${item.id}`)}>
-                  <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
+                  <img src={item.image} alt={item.title} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                 </div>
                 
                 {/* Info */}

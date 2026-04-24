@@ -59,6 +59,7 @@ const ProductDetail = () => {
           <img 
             src={locProduct.image} 
             alt={locProduct.title} 
+            referrerPolicy="no-referrer"
             className="w-full max-h-[500px] object-cover rounded shadow-sm hover:scale-105 transition-transform duration-500"
           />
         </div>

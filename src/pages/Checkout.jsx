@@ -105,7 +105,7 @@ const Checkout = () => {
               {cart.map(item => (
                 <div key={item.id} className="flex gap-4">
                   <div className="w-16 h-16 bg-white rounded overflow-hidden flex-shrink-0 border border-gray-100">
-                    <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
+                    <img src={item.image} alt={item.title} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                   </div>
                   <div className="flex-1">
                     <h4 className="text-sm font-bold text-gray-800 line-clamp-1">{item.title}</h4>
