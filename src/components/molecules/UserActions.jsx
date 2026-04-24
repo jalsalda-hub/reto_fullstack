@@ -1,8 +1,10 @@
 import { ShoppingCart, UserRound } from 'lucide-react';
 import { useAuthStore } from '../../store/useAuthStore';
+import { useNavigate } from 'react-router-dom';
 
 export const UserActions = () => {
   const { isAuthenticated, user, logout } = useAuthStore();
+  const navigate = useNavigate();
 
   return (
     <div className="flex items-center space-x-6">
@@ -12,15 +14,20 @@ export const UserActions = () => {
         <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
       </button>
 
-      <div className="relative group cursor-pointer flex items-center space-x-2">
-        <UserRound className="w-6 h-6 text-hexa-dark hover:text-black" />
+      <div className="relative group flex items-center space-x-2">
         {isAuthenticated ? (
-          <div className="flex flex-col items-start hidden sm:flex">
-            <span className="text-xs text-gray-500">Hola, {user?.name || 'User'}</span>
-            <button onClick={logout} className="text-xs font-semibold text-hexa-dark hover:underline">Salir</button>
-          </div>
+          <>
+            <img src={user?.avatar} alt="User Avatar" className="w-8 h-8 rounded-full border border-gray-200" />
+            <div className="flex flex-col items-start hidden sm:flex">
+              <span className="text-xs text-gray-500">Hola, {user?.name || 'User'}</span>
+              <button onClick={logout} className="text-xs font-semibold text-hexa-dark hover:underline">Salir</button>
+            </div>
+          </>
         ) : (
-          <span className="text-sm font-semibold hidden sm:inline">Ingresar</span>
+          <button onClick={() => navigate('/login')} className="flex items-center space-x-2 text-hexa-dark hover:text-black">
+            <UserRound className="w-6 h-6" />
+            <span className="text-sm font-semibold hidden sm:inline">Ingresar</span>
+          </button>
         )}
       </div>
     </div>

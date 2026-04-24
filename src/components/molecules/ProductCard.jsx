@@ -1,10 +1,13 @@
 import { ShoppingCart } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import Button from '../atoms/Button';
 
 const ProductCard = ({ product }) => {
+  const navigate = useNavigate();
+
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 group">
-      <div className="relative h-64 overflow-hidden bg-gray-100">
+      <div className="relative h-64 overflow-hidden bg-gray-100 cursor-pointer" onClick={() => navigate(`/product/${product.id}`)}>
         <img 
           src={product.image} 
           alt={product.title} 
@@ -20,7 +23,11 @@ const ProductCard = ({ product }) => {
         <p className="text-gray-600 text-sm line-clamp-2 mb-4">{product.description}</p>
         
         <div className="flex items-center justify-between mt-4 border-t pt-4">
-          <Button variant="secondary" className="flex-1 mr-2 text-sm text-center py-2">
+          <Button 
+            variant="secondary" 
+            className="flex-1 mr-2 text-sm text-center py-2"
+            onClick={() => navigate(`/product/${product.id}`)}
+          >
             Ver Detalle
           </Button>
           <Button variant="primary" className="p-2 flex items-center justify-center">
