@@ -106,7 +106,7 @@ const ProductDetail = () => {
               onClick={handleAddToCart}
             >
               <ShoppingCart className="w-5 h-5" />
-              Añadir {quantity > 1 ? `${quantity} items` : 'al Carrito'}
+              Añadir {quantity > 1 ? `${quantity} productos` : 'al Carrito'}
             </Button>
           </div>
         </div>

@@ -39,7 +39,7 @@ const Cart = () => {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div className="flex items-center justify-between border-b border-gray-200 pb-6 mb-8">
         <h1 className="text-3xl font-bold text-gray-900">Carrito de Compras</h1>
-        <span className="text-gray-500 font-medium">{totalItems} {totalItems === 1 ? 'ítem' : 'ítems'}</span>
+        <span className="text-gray-500 font-medium">{totalItems} {totalItems === 1 ? 'producto' : 'productos'}</span>
       </div>
 
       <div className="flex flex-col lg:flex-row gap-10">
@@ -133,7 +133,7 @@ const Cart = () => {
             
             <div className="space-y-4 mb-6 text-gray-600">
               <div className="flex justify-between">
-                <span>Subtotal ({totalItems} {totalItems === 1 ? 'ítem' : 'ítems'})</span>
+                <span>Subtotal ({totalItems} {totalItems === 1 ? 'producto' : 'productos'})</span>
                 <span className="font-medium text-gray-900">${totalPrice.toFixed(2)}</span>
               </div>
               <div className="flex justify-between pb-4 border-b border-gray-200">

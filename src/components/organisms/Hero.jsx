@@ -9,13 +9,13 @@ const Hero = () => {
         {/* Lado izquierdo - Texto */}
         <div className="md:w-1/2 z-10 text-center md:text-left mt-10 md:mt-0">
           <h1 className="text-4xl md:text-6xl font-bold font-serif text-gray-900 leading-tight mb-4">
-            We Are Hexashop
+            Somos Hexashop
           </h1>
           <p className="text-gray-600 text-lg mb-8 max-w-lg">
-            Awesome, clean & creative HTML5 Template for your ecommerce project. Discover our latest collection and best deals.
+            Increíble y creativa tienda online para todas tus compras. Descubre nuestra última colección y las mejores ofertas del momento.
           </p>
           <Button variant="primary" className="px-8 py-3 text-lg">
-            Purchase Now
+            Comprar Ahora
           </Button>
         </div>
 
@@ -23,7 +23,7 @@ const Hero = () => {
         <div className="md:w-1/2 mt-10 md:mt-0 px-4 md:px-0">
           <img 
             src="/src/assets/hero.png" 
-            alt="Hexashop Fashion" 
+            alt="Moda Hexashop" 
             className="w-full max-w-md mx-auto object-contain drop-shadow-xl"
           />
         </div>
