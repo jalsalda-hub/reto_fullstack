@@ -10,13 +10,31 @@ const ProductList = () => {
     getPaginatedProducts, 
     getTotalPages, 
     currentPage, 
-    setPage 
+    setPage,
+    isLoading,
+    error
   } = useProductStore();
 
   useEffect(() => {
     // Al montar el componente, cargamos los datos iniciales
     loadInitialData();
   }, [loadInitialData]);
+
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center py-20">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-hexa-dark"></div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="flex justify-center items-center py-20 text-red-500">
+        <p>{error}</p>
+      </div>
+    );
+  }
 
   const products = getPaginatedProducts();
   const totalPages = getTotalPages();

@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import mockProducts from '../mockdata/products.json';
+import axios from 'axios';
 
 // ITEMS_PER_PAGE define el límite estricto que pide el proyecto (6 a 8). Elegimos 6.
 const ITEMS_PER_PAGE = 6;
@@ -14,16 +14,28 @@ export const useProductStore = create(
       searchQuery: '',
       currentPage: 1,
       itemsPerPage: ITEMS_PER_PAGE,
+      isLoading: false,
+      error: null,
 
       // Acciones
 
-      // Fase 1: Cargamos directamente desde el JSON
-      loadInitialData: () => {
-        set({
-          products: mockProducts,
-          filteredProducts: mockProducts,
-          currentPage: 1
-        });
+      // Fase 2: Cargamos datos reales desde FakeStoreAPI
+      loadInitialData: async () => {
+        try {
+          set({ isLoading: true, error: null });
+          const response = await axios.get('https://fakestoreapi.com/products');
+          const apiProducts = response.data;
+          
+          set({
+            products: apiProducts,
+            filteredProducts: apiProducts,
+            currentPage: 1,
+            isLoading: false
+          });
+        } catch (error) {
+          console.error("Error fetching products:", error);
+          set({ isLoading: false, error: 'Hubo un error al cargar los productos.' });
+        }
       },
 
       // Updatea la query de busqueda y filtra al vuelo
