@@ -77,7 +77,7 @@ const ProductList = () => {
             <ChevronLeft size={20} className="mr-1" /> Anterior
           </Button>
           
-          <span className="text-gray-700 font-medium">
+          <span className="text-gray-700 dark:text-white font-medium">
             Página {currentPage} de {totalPages}
           </span>
           

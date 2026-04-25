@@ -35,7 +35,7 @@ export const UserActions = () => {
 
       <button 
         onClick={() => navigate('/cart')} 
-        className="relative text-hexa-dark hover:text-black transition cursor-pointer"
+        className="relative text-hexa-dark hover:text-black transition cursor-pointer dark:text-white"
         aria-label="Ver carrito"
       >
         <ShoppingCart className="w-6 h-6" />

@@ -10,7 +10,7 @@ export const Navbar = () => {
         {/* Superior en Móvil / Izquierda en Desktop */}
         <div className="flex w-full md:w-auto items-center justify-between">
           <Link to="/">
-            <h1 className="text-2xl font-bold tracking-tighter uppercase text-hexa-dark">Hexashop</h1>
+            <h1 className="text-2xl font-bold tracking-tighter uppercase text-hexa-dark dark:text-white">Hexashop</h1>
           </Link>
           
           {/* User Actions en Móvil */}
