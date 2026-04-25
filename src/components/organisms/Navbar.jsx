@@ -4,7 +4,7 @@ import { UserActions } from '../molecules/UserActions';
 
 export const Navbar = () => {
   return (
-    <header className="sticky top-0 z-50 w-full bg-white shadow-sm border-b border-gray-100">
+    <header className="sticky top-0 z-50 w-full bg-white dark:bg-gray-900 shadow-sm border-b border-gray-100 dark:border-gray-800 transition-colors duration-300">
       <div className="container mx-auto px-4 py-3 md:py-4 flex flex-col md:flex-row items-center justify-between gap-4">
         
         {/* Superior en Móvil / Izquierda en Desktop */}

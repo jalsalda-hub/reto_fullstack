@@ -2,10 +2,11 @@
 
 @import "tailwindcss";
 @config "../../tailwind.config.js";
+@variant dark (&:where(.dark, .dark *));
 
 @layer base {
   body {
-    @apply font-sans antialiased bg-white text-[#2a2a2a];
+    @apply font-sans antialiased bg-white text-[#2a2a2a] dark:bg-gray-900 dark:text-white transition-colors duration-300;
   }
 
   p {
