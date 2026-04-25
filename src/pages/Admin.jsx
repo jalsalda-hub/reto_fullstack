@@ -7,6 +7,7 @@ import Button from '../components/atoms/Button';
 import { Input } from '../components/atoms/Input';
 import { UploadCloud, Link as LinkIcon, CheckCircle, AlertCircle, Edit, X } from 'lucide-react';
 import { formatPrice } from '../utils/formatPrice';
+import { FooterAdmin } from '../components/organisms/FooterAdmin';
 
 const Admin = () => {
   const { products, loadInitialData } = useProductStore();
@@ -118,6 +119,9 @@ const Admin = () => {
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-12">
+      {/* SECCIÓN CONFIGURACIÓN FOOTER */}
+      <FooterAdmin />
+
       {/* SECCIÓN DEL FORMULARIO */}
       <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 mb-12">
         <div className={`px-8 py-6 text-white flex justify-between items-center ${editingId ? 'bg-blue-600' : 'bg-gray-900'}`}>

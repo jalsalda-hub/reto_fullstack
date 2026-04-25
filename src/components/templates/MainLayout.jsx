@@ -1,4 +1,5 @@
 import { Navbar } from '../organisms/Navbar';
+import { Footer } from '../organisms/Footer';
 
 export const MainLayout = ({ children }) => {
   return (
@@ -7,11 +8,7 @@ export const MainLayout = ({ children }) => {
       <main className="flex-grow container mx-auto px-4 py-8">
         {children}
       </main>
-      
-      {/* Basic Footer Placeholder */}
-      <footer className="bg-hexa-dark text-white py-6 text-center mt-auto">
-        <p className="text-sm opacity-80">© 2026 Hexashop - Reto Fullstack. Todos los derechos reservados.</p>
-      </footer>
+      <Footer />
     </div>
   );
 };
