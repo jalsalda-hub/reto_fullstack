@@ -42,7 +42,11 @@ export const UserActions = () => {
             <img src={user?.avatar} alt="User Avatar" className="w-8 h-8 rounded-full border border-gray-200" />
             <div className="flex flex-col items-start hidden sm:flex">
               <span className="text-xs text-gray-500">Hola, {user?.name || 'User'}</span>
-              <button onClick={logout} className="text-xs font-semibold text-hexa-dark hover:underline">Salir</button>
+              <div className="flex items-center gap-2 mt-0.5">
+                <button onClick={() => navigate('/admin')} className="text-xs font-bold text-blue-600 hover:underline">Admin</button>
+                <span className="text-gray-300 text-[10px]">|</span>
+                <button onClick={logout} className="text-xs font-semibold text-hexa-dark hover:underline">Salir</button>
+              </div>
             </div>
           </>
         ) : (

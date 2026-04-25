@@ -10,10 +10,10 @@ export const SearchBar = () => {
   };
 
   return (
-    <div className="relative w-full max-w-sm hidden md:flex items-center">
+    <div className="relative w-full flex items-center">
       <Input 
         placeholder="Buscar productos..." 
-        className="pr-10 rounded-full" 
+        className="pr-10 rounded-full w-full" 
         value={searchQuery}
         onChange={handleSearch}
       />
