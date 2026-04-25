@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { db, storage } from '../config/firebase';
 import { collection, addDoc, doc, setDoc } from 'firebase/firestore';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { useProductStore } from '../store/useProductStore';
+import { useAuthStore } from '../store/useAuthStore';
 import Button from '../components/atoms/Button';
 import { Input } from '../components/atoms/Input';
 import { UploadCloud, Link as LinkIcon, CheckCircle, AlertCircle, Edit, X } from 'lucide-react';
@@ -11,6 +13,8 @@ import { FooterAdmin } from '../components/organisms/FooterAdmin';
 
 const Admin = () => {
   const { products, loadInitialData } = useProductStore();
+  const { isAuthenticated, isAuthLoading } = useAuthStore();
+  const navigate = useNavigate();
   
   const [editingId, setEditingId] = useState(null);
   const [title, setTitle] = useState('');
@@ -30,6 +34,21 @@ const Admin = () => {
       loadInitialData();
     }
   }, [products.length, loadInitialData]);
+
+  // Protección de la ruta de administrador
+  useEffect(() => {
+    if (!isAuthLoading && !isAuthenticated) {
+      navigate('/login');
+    }
+  }, [isAuthenticated, isAuthLoading, navigate]);
+
+  if (isAuthLoading) {
+    return <div className="flex items-center justify-center min-h-[60vh] text-gray-500 font-medium">Verificando sesión...</div>;
+  }
+
+  if (!isAuthenticated) {
+    return null; // Evita destellos de UI antes de redirigir
+  }
 
   const handleImageChange = (e) => {
     if (e.target.files[0]) {
