@@ -1,13 +1,15 @@
-import { ShoppingCart, UserRound, Globe } from 'lucide-react';
+import { ShoppingCart, UserRound, Globe, Sun, Moon } from 'lucide-react';
 import { useAuthStore } from '../../store/useAuthStore';
 import { useCartStore } from '../../store/useCartStore';
 import { useProductStore } from '../../store/useProductStore';
+import { useThemeStore } from '../../store/useThemeStore';
 import { useNavigate } from 'react-router-dom';
 
 export const UserActions = () => {
   const { isAuthenticated, user, logout } = useAuthStore();
   const cart = useCartStore((state) => state.cart);
   const { language, toggleLanguage } = useProductStore();
+  const { theme, toggleTheme } = useThemeStore();
   const navigate = useNavigate();
 
   const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
@@ -15,8 +17,16 @@ export const UserActions = () => {
   return (
     <div className="flex items-center space-x-6">
       <button 
+        onClick={toggleTheme} 
+        className="flex items-center text-hexa-dark hover:text-black font-medium transition dark:text-white"
+        title="Cambiar tema"
+      >
+        {theme === 'light' ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
+      </button>
+
+      <button 
         onClick={toggleLanguage} 
-        className="flex items-center text-hexa-dark hover:text-black font-medium transition"
+        className="flex items-center text-hexa-dark hover:text-black font-medium transition dark:text-white"
         title="Cambiar idioma"
       >
         <Globe className="w-5 h-5 mr-1" />
